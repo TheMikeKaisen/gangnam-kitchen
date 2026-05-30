@@ -16,7 +16,7 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
 
     const initLenis = async () => {
       try {
-        const LenisModule = await import('@studio-freight/lenis')
+        const LenisModule = await import('lenis')
         const Lenis = LenisModule.default
 
         lenis = new Lenis({
