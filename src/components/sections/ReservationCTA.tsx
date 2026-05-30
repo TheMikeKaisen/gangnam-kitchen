@@ -8,7 +8,7 @@ import { useInView } from '@/hooks/useInView'
 import { ChevronRight, MapPin, Clock, Phone } from 'lucide-react'
 
 const INTERIOR_IMAGE = {
-  local: '/images/hero/hero-secondary.jpg',
+  local: '',
   fallback: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=85',
 }
 
