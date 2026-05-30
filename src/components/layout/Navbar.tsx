@@ -20,6 +20,7 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [hoveredLink, setHoveredLink] = useState<string | null>(null)
   const pathname = usePathname()
+  const hasDarkHero = pathname === '/' || pathname === '/about'
   const lastScrollY = useRef(0)
   const [hidden, setHidden] = useState(false)
 
@@ -89,7 +90,7 @@ export function Navbar() {
             <div className="flex items-baseline gap-2">
               <span
                 className={`font-display text-2xl font-500 tracking-tight leading-none ${
-                  scrolled ? 'text-charcoal-800' : 'text-ivory-100'
+                  scrolled || !hasDarkHero ? 'text-charcoal-800' : 'text-ivory-100'
                 }`}
                 style={{ fontFamily: 'var(--font-cormorant)', fontWeight: 500 }}
               >
@@ -104,7 +105,7 @@ export function Navbar() {
             </div>
             <span
               className={`font-korean text-[9px] tracking-[0.25em] uppercase ${
-                scrolled ? 'text-charcoal-300' : 'text-ivory-100/50'
+                scrolled || !hasDarkHero ? 'text-charcoal-300' : 'text-ivory-100/50'
               }`}
               style={{ fontFamily: 'var(--font-noto-kr)', letterSpacing: '0.2em' }}
             >
@@ -124,7 +125,7 @@ export function Navbar() {
                   'relative px-4 py-2 group overflow-hidden font-body text-[0.78rem] font-400 tracking-[0.1em] uppercase transition-colors duration-300 no-underline',
                   pathname === link.href
                     ? 'text-korean-red'
-                    : scrolled
+                    : scrolled || !hasDarkHero
                       ? 'text-charcoal-500 hover:text-charcoal-800'
                       : 'text-ivory-100/70 hover:text-ivory-100'
                 )}
